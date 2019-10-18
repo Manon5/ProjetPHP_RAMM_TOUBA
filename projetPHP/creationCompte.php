@@ -86,11 +86,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       $maConnexion = new Connexion();
       $objetPDO = $maConnexion->creer_Connexion();
-      $statement = $objetPDO->query("SELECT pseudo FROM redacteur"); //On prend la liste des pseudos dans la bdd
+      $statement = $objetPDO->query("SELECT pseudo,adressemail FROM redacteur"); //On prend la liste des pseudos dans la bdd
 
       $pseudoOk = true; //Booleen qui sert à voir si le pseudo est valide
+      $adresseOk = true;
 
      while ($colonne = $statement->fetch()) {
+
+       if($colonne['adressemail'] == $_POST['adresse']){
+
+           echo("<div> Cette adresse mail est déjà attribuée, veuillez en saisir une autre.");
+           $adresseOk=false;    //Si on trouve le pseudo dans la bdd, on ne fait rien
+           break;
+
+       }
 
         if($colonne['pseudo'] == $_POST['pseudo']){
 
@@ -102,7 +111,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       }
 
-    if($pseudoOk == true){  //Si le pseudo n'est pas trouvé dans la bdd
+    if($pseudoOk == true && $adresseOk == true){  //Si le pseudo n'est pas trouvé dans la bdd
 
           $statement = $objetPDO->prepare("INSERT INTO redacteur(nom, prenom, adressemail, motdepasse, pseudo) VALUES(?,?,?,?,?)");
 
@@ -120,11 +129,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
-
-
     ?>
 
 </body>
-
 
 </html>
