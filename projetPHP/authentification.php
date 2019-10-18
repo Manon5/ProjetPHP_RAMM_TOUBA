@@ -22,7 +22,7 @@
         if($id == $resultat[$key]['pseudo'] & $mdp == $resultat[$key]['motdepasse']){
           echo("Vous etes connecté !");
           session_start();
-          $_SESSION['login'] = $id;
+          $_SESSION['pseudo'] = $id;
           header('Location: page_redacteur.php');
           $valide = 1;
         }
