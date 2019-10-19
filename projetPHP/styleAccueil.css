@@ -28,6 +28,7 @@
   text-align: center;
   align-items: center;
   margin-left: 37.5vw;
+  margin-top: 5vw;
 }
 
 #articles input{
@@ -37,9 +38,32 @@
 
 .titreArticle{
   margin-left:1vw;
+  text-align: center;
+  text-decoration:underline;
 }
 
-.article{
-  width:40vw;
-  background-color: red;
+#articlesPresentation{
+
+  display: flex;
+  justify-content: space-around;
+
+}
+
+#articlesPresentation .article{
+
+  width:45%;
+  border : 1px dotted black;
+
+}
+
+.contenuArticle{
+  width:98%;
+  text-align: justify;
+  font-size: 20px;
+}
+
+.dateArticle{
+  width : 44vw;
+  font-size: 22px;
+  text-align:right;
 }
