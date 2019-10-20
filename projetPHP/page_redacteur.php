@@ -13,7 +13,8 @@
       <?php
       session_start();
       if(isset($_SESSION['pseudo'])){
-        echo("<a href='deconnexion.php' > Se déconnecter </a>");
+        echo("<a href='javascript:if(confirm(\"Vous allez être déconnecté\")){   location.href=\"deconnexion.php\" }
+' > Se déconnecter </a>");
       } ?>
     </nav>
 
