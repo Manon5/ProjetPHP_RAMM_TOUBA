@@ -1,25 +1,47 @@
+<!DOCTYPE html>
 
-<html>
+<html lang="fr">
 
   <head>
 
     <?php
     session_start();
 
-    include('connexion.php');
-    //include('deconnexion.php');
+    include 'connexion.php';
      ?>
     <meta charset = "UTF-8">
     <title> Blog pour le projet de PHP </title>
     <link rel = "stylesheet"
      type = "text/css"
-     href = "styleAccueil.css"/>
+     href = "styleAccueilListeArticles.css"/>
 
   </head>
 
 <body>
 
-    <h1 class="titreAccueil"> Bienvenue sur le blog du projet PHP ! </h1>
+    <nav class="menu">
+
+      <ul>
+            <li> <a href="listeArticles.php">Voir tous les articles</a> </li>
+
+            <?php
+
+            if(isSet($_SESSION['pseudo'])){
+
+              echo(' <li class = "itemMenu"> <a href="page_redacteur.php"> Ecrire un article </a> </li>
+
+                  <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>
+                  <li class="itemMenu"> <a href="deconnexion.php" class="itemMenu"> Se déconnecter </a> </li>'
+                );
+            }
+
+            ?>
+
+      </ul>
+
+    </nav>
+
+    <h1 class="titre"> Bienvenue sur le blog du projet PHP ! </h1>
 
 
 <div id="menuAccueil">
@@ -48,7 +70,7 @@ echo("</div>");
 
 ?>
 
-<h1 class="titreAccueil"> Voici les derniers articles disponibles sur le blog : </h1>
+<h1 class="titre"> Voici les derniers articles disponibles sur le blog : </h1>
 
 
   <?php
@@ -64,7 +86,7 @@ echo("</div>");
 
   $nbArticles=0;
 
-   while ( ($colonne = $statement->fetch()) && ($nbArticles < 2)  ){
+   while ( ($colonne = $statement->fetch()) && ($nbArticles < 4)  ){
 
     ++$nbArticles;
 
@@ -78,7 +100,7 @@ echo("</div>");
       </div>.
 
 
-       <br/ >"
+       <br />"
 
     );
 
@@ -87,12 +109,6 @@ echo("</div>");
   echo("</div>");
 
    ?>
-
-   <div id="articles">
-       <form action="listeArticles.php">
-         <input type="submit" value="Voir tous les articles disponibles">
-       </form>
-   </div>
 
 </body>
 
