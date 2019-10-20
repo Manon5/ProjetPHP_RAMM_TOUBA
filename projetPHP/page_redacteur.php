@@ -5,10 +5,20 @@
   </head>
 
   <body>
+
+    <nav>
+      <a href = "http://localhost/PROJETPHP/projetPHP/accueil.php"> Retour à l'accueil </a>
+      <a href = "http://localhost/PROJETPHP/projetPHP/listeArticles.php?" > Voir tous les articles </a>
+      <?php
+      session_start();
+      if(isset($_SESSION['pseudo'])){
+        echo("<a href='#' onclick='alert('MonAlerte');return false;' > Se déconnecter </a>");
+      } ?>
+    </nav>
+
     <h1>Rédaction d'un nouvel article :  </h1>
 
     <?php
-    session_start();
     echo("Bienvenue, " .   $_SESSION['pseudo'] . " !"); ?>
 
 
@@ -30,7 +40,7 @@
       include 'connexion.php';
        $co = new Connexion();
 
-       if($_POST["titre"] != "" &&  $_POST["article"] != ""){
+       if(trim($_POST["titre"]) != "" &&  trim($_POST["article"]) != ""){
          $query = $co->creer_Connexion()->prepare("INSERT INTO sujet (idredacteur, titresujet, textesujet, datesujet) VALUES ( ?, ?, ?, NOW())");
 
          // on chope l'id du rédacteur
@@ -48,7 +58,7 @@
          $query->bindValue(3, $_POST["article"]);
          $query->execute();
         echo ("L'article '" . $titre . "'  a bien été publié ! ");
-      }else if($_POST["titre"] == ""){
+      }else if(trim($_POST["titre"]) == ""){
         echo("Veuillez renseigner le titre de l'article");
       }else{
         echo("Veuillez renseigner le contenu de l'article");
