@@ -4,7 +4,10 @@
   <head>
 
     <?php
+    session_start();
+
     include('connexion.php');
+    //include('deconnexion.php');
      ?>
     <meta charset = "UTF-8">
     <title> Blog pour le projet de PHP </title>
@@ -18,19 +21,32 @@
 
     <h1 class="titreAccueil"> Bienvenue sur le blog du projet PHP ! </h1>
 
+
 <div id="menuAccueil">
 
     <form action="creationCompte.php">
       <input type="submit" value="Créer un compte rédacteur">
     </form>
 
-    <form action="authentification.php">
-      <input type="submit" value="S'authentifier">
-    </form>
+<?php
 
-</div>
+  if(isSet($_SESSION['pseudo'])){
 
+    echo("<form action='deconnexion.php'>
+            <input type='submit' value='Se déconnecter'>
+          </form>");
+  }
 
+  else{
+
+    echo('<form action="authentification.php">
+            <input type="submit" value="S\'authentifier">
+          </form>');
+  }
+
+echo("</div>");
+
+?>
 
 <h1 class="titreAccueil"> Voici les derniers articles disponibles sur le blog : </h1>
 
@@ -38,7 +54,7 @@
   <?php
 
 
-  session_start();
+
 
   $maConnexion = new Connexion();
   $objetPDO = $maConnexion->creer_Connexion();

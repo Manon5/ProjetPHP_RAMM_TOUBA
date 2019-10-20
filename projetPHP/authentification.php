@@ -23,7 +23,7 @@
           echo("Vous etes connecté !");
           session_start();
           $_SESSION['pseudo'] = $id;
-          header('Location: page_redacteur.php');
+          header('Location: accueil.php');
           $valide = 1;
         }
       }
