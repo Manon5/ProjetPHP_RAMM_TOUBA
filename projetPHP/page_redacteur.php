@@ -2,17 +2,18 @@
 
   <head>
     <title>Nouvel article</title>
+
   </head>
 
   <body>
 
     <nav>
-      <a href = "http://localhost/PROJETPHP/projetPHP/accueil.php"> Retour à l'accueil </a>
-      <a href = "http://localhost/PROJETPHP/projetPHP/listeArticles.php?" > Voir tous les articles </a>
+      <a href = "accueil.php"> Retour à l'accueil </a>
+      <a href = "listeArticles.php?" > Voir tous les articles </a>
       <?php
       session_start();
       if(isset($_SESSION['pseudo'])){
-        echo("<a href='#' onclick='alert('MonAlerte');return false;' > Se déconnecter </a>");
+        echo("<a href='deconnexion.php' > Se déconnecter </a>");
       } ?>
     </nav>
 
