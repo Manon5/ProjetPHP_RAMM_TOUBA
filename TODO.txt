@@ -7,3 +7,4 @@
 -verif mdp double
 -presentation/indentement
 -style du site
+- html validator  /CSS
