@@ -3,7 +3,7 @@
 -commenter code
 - afficher pseudo partout
 -required
-
+-fermer connexions
 -presentation/indentement
 -style du site
 - html validator  /CSS
