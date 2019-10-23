@@ -1,7 +1,7 @@
 
 
 -commenter code
-
+- afficher pseudo partout
 -required
 
 -presentation/indentement
