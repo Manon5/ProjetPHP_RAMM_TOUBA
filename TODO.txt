@@ -1,5 +1,5 @@
 
-
+-style erreur page de connexion
 -commenter code
 - afficher pseudo partout
 -required
