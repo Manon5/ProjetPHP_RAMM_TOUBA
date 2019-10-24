@@ -7,5 +7,4 @@
 -presentation/indentement
 -style du site
 - html validator  /CSS
-connexion adresse mail
 format dates
