@@ -164,6 +164,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
+
+ unset($objetPDO);
+
     ?>
 
 </body>

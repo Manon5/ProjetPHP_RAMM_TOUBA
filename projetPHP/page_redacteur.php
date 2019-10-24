@@ -95,6 +95,9 @@
 
 
     }
+
+
+     unset($objetPDO);
     ?>
   </body>
 

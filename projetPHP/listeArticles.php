@@ -75,6 +75,7 @@
        echo('</div>');
 
 
+        unset($objetPDO);
 
   }
   ?>
