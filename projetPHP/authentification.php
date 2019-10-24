@@ -15,11 +15,11 @@
       $id = $_POST["log"];
       $mdp = $_POST["mdp"];
 
-      $query = $co->creer_Connexion()->query("SELECT pseudo, motdepasse, idredacteur FROM redacteur");
+      $query = $co->creer_Connexion()->query("SELECT pseudo, motdepasse, idredacteur, adressemail FROM redacteur");
       $resultat = $query->fetchAll();
       $valide = 0;
       foreach ($resultat as $key => $variable){
-        if($id == $resultat[$key]['pseudo'] & $mdp == $resultat[$key]['motdepasse']){
+        if(($id == $resultat[$key]['pseudo'] || $id == $resultat[$key]['adressemail']) & $mdp == $resultat[$key]['motdepasse']){
           echo("Vous etes connecté !");
           session_start();
           $_SESSION['pseudo'] = $id;
