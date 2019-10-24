@@ -2,12 +2,14 @@
   margin-left:1vw;
   text-align: center;
   text-decoration:underline;
+  font-size: 30px;
 }
 
 .contenuArticle{
-  width:98%;
+  width:96%;
   text-align: justify;
   font-size: 20px;
+  padding:0.5vw;
 }
 
 .dateArticle{
@@ -19,8 +21,6 @@
 #articlesPresentation .article{
   margin-left: 20vw;
   width:60%;
-  border : 1px dotted black;
-
 }
 
 #articlesPresentation{
@@ -29,7 +29,7 @@
 
 .reponse{
   width:40vw;
-  height:8vw;
+  height:10vw;
   border:1px solid black;
   margin : 2vw;
   margin:0,5vw;
@@ -44,6 +44,7 @@
 .contenuReponse{
   text-align: justify;
   margin:0.5vw;
+  width:96%;
 }
 
 .lienReponses a{
@@ -87,4 +88,10 @@ ul {
 
 body{
   margin:0;
+}
+
+.titreReponse{
+  width:100%;
+  margin:0.5vw;
+
 }

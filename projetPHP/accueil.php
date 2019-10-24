@@ -40,17 +40,20 @@
 
     </nav>
 
-    <h1 class="titre"> Bienvenue sur le blog du projet PHP ! </h1>
-
 
 
 
 
 <?php
 
+  echo('<div id="menuAccueil">');
+
   if(!isSet($_SESSION['pseudo'])){
 
-    echo('<div id="menuAccueil">');
+    echo("<h1 class='titre'> Bienvenue sur le blog du projet PHP !");
+
+
+
       echo('<form action="creationCompte.php">');
           echo('<input type="submit" value="Créer un compte rédacteur">');
       echo('</form>');
@@ -63,7 +66,8 @@
 
   else{
 
-    echo('<div id="menuAccueil">');
+      echo("<h1 class='titre'> Bienvenue sur le blog du projet PHP, " . $_SESSION['pseudo'] ." ! </h1>");
+
     echo("<form action='deconnexion.php'>");
       echo("<input type='submit' value='Se déconnecter'>");
     echo("</form>");
@@ -94,16 +98,19 @@ echo("<br />");
 
     ++$nbArticles;
 
-
+    if (strlen($colonne['textesujet']) > 400){
+      $contenu = $colonne['textesujet'];
+      $contenu = substr($contenu,0,399);
+    }
       echo('<div class="article">');
 
         echo('<h2 class="titreArticle">'   . $colonne['titresujet'] . '</h2>');
-        echo('<div class="contenuArticle">'   . $colonne['textesujet'] . '</div>');
+        echo('<div class="contenuArticle">'   . $contenu . ' ... </div>');
         echo(' <br />');
 
       echo('<div class  = "infosArticle">');
           echo('<div class="lienReponses">');
-            echo(" <a href='blog.php?idsujet="  . $colonne['idsujet'] . "'> Voir les réponses  </a>");
+            echo(" <a href='blog.php?idsujet="  . $colonne['idsujet'] . "'> Lire l'article  </a>");
           echo('</div>');
 
           echo('<div class="dateArticle"> Ecrit par : ' . $colonne['prenom'] . " ".  $colonne['nom'] . ", le :  <b>" .  $colonne['datesujet'] . '  </b>  </div>');

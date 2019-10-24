@@ -78,30 +78,31 @@ ul {
 }
 
 .contenuArticle{
-  width:97%;
+  width:96%;
   text-align: justify;
-  font-size: 20px;
+  font-size: 15px;
   padding:0.5vw;
 }
 
 .dateArticle{
-  width : 44vw;
-  font-size: 22px;
+  width : 98%;
+  font-size: 14px;
   text-align:right;
 }
 
 #articlesPresentation .article{
 
-  width:45%;
+  width:46%;
   border : 1px dotted black;
-  margin:2vw;
+  margin:1vw;
 
 }
 
 #articlesPresentation{
   display: flex;
   flex-flow: wrap;
-  width:100vw;
+  width:70vw;
+  margin:auto;
 }
 
 body{

@@ -29,9 +29,8 @@
 
             echo(' <li class = "itemMenu"> <a href="page_redacteur.php"> Ecrire un article </a> </li>
 
-                <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>');
-                  echo("<li class='itemMenu'> <a href='javascript:if(confirm(\"Vous allez être déconnecté\")){   location.href=\"deconnexion.php\" }
-                ' > Se déconnecter </a> </li>");
+                <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>
+                <li class="itemMenu"> <a href="deconnexion.php" class="itemMenu"> Se déconnecter </a> </li>');
           }
 
           ?>
@@ -75,7 +74,6 @@
        echo('</div>');
 
 
-        unset($objetPDO);
 
   }
   ?>

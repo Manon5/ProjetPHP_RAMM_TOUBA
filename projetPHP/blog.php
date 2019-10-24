@@ -32,8 +32,8 @@
             echo(' <li class = "itemMenu"> <a href="page_redacteur.php"> Ecrire un article </a> </li>
 
                 <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>
-                <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>');                  echo("<li class='itemMenu'> <a href='javascript:if(confirm(\"Vous allez être déconnecté\")){   location.href=\"deconnexion.php\" }
-                ' > Se déconnecter </a> </li>");
+                <li class="itemMenu"> <a href="deconnexion.php" class="itemMenu"> Se déconnecter </a> </li>'
+              );
           }
 
 
@@ -89,7 +89,8 @@
     $statement = $objetPDO->query("SELECT textereponse,daterep,nom,prenom
                                   FROM reponse,redacteur
                                   WHERE  reponse.idredacteur = redacteur.idredacteur
-                                  AND reponse.idsujet =" . $_GET['idsujet'])
+                                  AND reponse.idsujet =" . $_GET['idsujet']
+                                  )
 
                                   ;
 
@@ -100,8 +101,12 @@
        echo("<div class='reponse'>");
 
        echo("<div class='titreReponse'>");
-        echo("Ecrit par : " . $colonne['nom'] ." " .  $colonne['prenom']);
+        echo( "Par <b>" . $colonne['nom'] ." </b>" .  $colonne['prenom'] .", le : <b>" . $colonne['daterep'] ."</b>");
        echo("</div>");
+
+
+
+
           echo("<div class='contenuReponse'>");
             echo($colonne['textereponse']);
           echo('</div>');
