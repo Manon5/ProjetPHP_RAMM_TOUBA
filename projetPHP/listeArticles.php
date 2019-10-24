@@ -60,7 +60,7 @@
        echo('<div class="article">');
 
          echo('<h2 class="titreArticle">'   . $colonne['titresujet'] . '</h2>');
-         echo('<div class="contenuArticle">'   . $colonne['textesujet'] . '</div>');
+         echo('<div class="contenuArticle">'   . nl2br($colonne['textesujet']) . '</div>');
          echo(' <br />');
 
        echo('<div class  = "infosArticle">');
