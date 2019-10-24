@@ -7,5 +7,4 @@
 -presentation/indentement
 -style du site
 - html validator  /CSS
-- mettre des popup partout pour la déconnexion
 connexion adresse mail
