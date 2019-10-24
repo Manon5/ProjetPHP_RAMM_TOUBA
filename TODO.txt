@@ -10,3 +10,4 @@
 format dates
 popup déconnexion (reste accueil)
 longueur input réponses
+valider pseudo en direct (js call php)
