@@ -1,8 +1,8 @@
 .titreArticle{
   margin-left:1vw;
   text-align: center;
-  text-decoration:underline;
   font-size: 30px;
+  color:  #60686a;
 }
 
 .contenuArticle{
@@ -29,8 +29,8 @@
 
 .reponse{
   width:40vw;
-  height:10vw;
-  border:1px solid black;
+  height:9vw;
+  border:1px solid #2479cf;
   margin : 2vw;
   margin:0,5vw;
 }
@@ -49,14 +49,16 @@
 
 .lienReponses a{
   text-decoration: none;
+  color : #3880dc;
 }
 
 .menu{
   width:100vw;
   height:2vw;
-  border-bottom:1px solid black;
+  border-bottom:1px solid #3880dc;
   margin:0;
   padding:0;
+  background-color: #639fec;
 }
 
 li a {
@@ -73,7 +75,10 @@ li{
   align-items: center;
   width:10%;
   height:100%;
-  border-right: 1px solid black;
+  border-right: 1px solid #3880dc;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-bottom: 2px;
 }
 
 ul {
@@ -93,5 +98,5 @@ body{
 .titreReponse{
   width:100%;
   margin:0.5vw;
-
+  color:  #60686a;
 }
