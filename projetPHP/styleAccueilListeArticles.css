@@ -113,3 +113,9 @@ body{
   text-decoration: none;
   margin-left:0.5vw;
 }
+
+#pseudo{
+  margin-top: 1vw;
+  width:98vw;
+  text-align: right;
+}

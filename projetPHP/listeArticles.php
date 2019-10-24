@@ -9,7 +9,7 @@
     session_start();
    ?>
 
-  <title> Liste des articles publics </title>
+  <title> Liste des articles </title>
   <link rel = "stylesheet"
    type = "text/css"
    href = "styleAccueilListeArticles.css"/>
@@ -39,6 +39,9 @@
 
   </nav>
 
+  <?php
+    if(isSet($_SESSION['pseudo']))
+      echo('<div id="pseudo"><b> Vous êtes connecté, ' . $_SESSION['pseudo'] ." </b>!"); ?>
 
   <h1 class="titre"> Liste des articles publiés sur le site : </h1>
 

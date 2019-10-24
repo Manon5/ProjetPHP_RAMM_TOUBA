@@ -10,7 +10,7 @@
     include 'connexion.php';
      ?>
     <meta charset = "UTF-8">
-    <title> Blog pour le projet de PHP </title>
+    <title> Liste des articles </title>
     <link rel = "stylesheet"
      type = "text/css"
      href = "styleBlog.css"/>
@@ -119,6 +119,7 @@
 
 echo("</div>");
 
+unset($objetPDO);
  ?>
 
 </body>

@@ -102,6 +102,9 @@ echo("<br />");
       $contenu = $colonne['textesujet'];
       $contenu = substr($contenu,0,399);
     }
+
+    else
+      $contenu = $colonne['textesujet'];
       echo('<div class="article">');
 
         echo('<h2 class="titreArticle">'   . $colonne['titresujet'] . '</h2>');
@@ -124,6 +127,7 @@ echo("<br />");
 
   echo("</div>");
 
+  unset($objetPDO);
    ?>
 
 </body>
