@@ -3,19 +3,20 @@
 
 <head>
 
-  <?php
-    include('connexion.php');
-   ?>
-   <meta charset = "UTF-8">
    <title> Blog pour le projet de PHP </title>
+
    <link rel = "stylesheet"
     type = "text/css"
     href = "style.css"/>
+    <meta charset = "UTF-8">
+
+    <?php include('connexion.php'); ?>
+
 </head>
 
 <body>
 
-  <nav class="menu">
+  <nav class="menu">  <!--Menu du haut -->
 
     <ul>
           <li> <a href="accueil.php">Retourner à l'accueil</a> </li>
@@ -25,21 +26,19 @@
 
           if(isSet($_SESSION['pseudo'])){
 
-            echo(' <li class = "itemMenu"> <a href="page_redacteur.php"> Ecrire un article </a> </li>
+            echo(' <li class = "itemMenu"> <a href="page_redacteur.php"> Ecrire un article </a> </li>');
+            echo(' <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>');
 
-                <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>'
-              );
           }
 
           ?>
 
     </ul>
-
   </nav>
 
   <h1 class="titre"> Création d'un compte rédacteur : </h1>
 
-  <form action ="creationCompte.php"  method="post">
+  <form action ="creationCompte.php"  method="post">  <!--Formulaire de création de compte -->
 
     <div>
       <label for ="nom">Votre nom : </label>
@@ -113,6 +112,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     else if ($_POST['pseudo']=="")
         echo("<div id='alerteForm'> Veuillez saisir un pseudo </div>");
+
     else
         $formValide = true;       //Si on arrive ici, le formulaire est valide
 
@@ -166,8 +166,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
  unset($objetPDO);
 
-    ?>
+  ?>
 
-</body>
+  </body>
 
 </html>

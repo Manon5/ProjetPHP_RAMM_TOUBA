@@ -17,9 +17,11 @@ class Connexion{
   public function creer_Connexion(){
 
     try{
+
       $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
       $bdd= new PDO($this->url,$this->login,$this->password, $options);
       return $bdd;
+
     }
 
     catch(Exception $e){
