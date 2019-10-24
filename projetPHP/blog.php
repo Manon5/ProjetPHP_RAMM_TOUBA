@@ -13,7 +13,7 @@
     <title> Liste des articles </title>
     <link rel = "stylesheet"
      type = "text/css"
-     href = "styleBlog.css"/>
+     href = "style.css"/>
 
   </head>
 
@@ -56,13 +56,13 @@
                                 AND idsujet =" . $_GET['idsujet'] )
                                 ;
 
-  echo("<div id='articlesPresentation'>");
+  echo("<div class='articleBlog'>");
 
    while ( ($colonne = $statement->fetch()) ){
      echo('<div class="article">');
 
        echo('<h2 class="titreArticle">'   . $colonne['titresujet'] . '</h2>');
-       echo('<div class="contenuArticle">'   . nl2br($colonne['textesujet']) . '</div>');
+       echo('<div class="contenuArticle">'   . $colonne['textesujet'] . '</div>');
        echo(' <br />');
 
      echo('<div class  = "infosArticle">');

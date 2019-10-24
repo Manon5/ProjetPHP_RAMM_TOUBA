@@ -1,10 +1,38 @@
 <html>
 
   <head>
-    <title>Page d'authentification</title>
+    <meta charset = "UTF-8">
+    <title> Page d'authentification </title>
+    <link rel = "stylesheet"
+     type = "text/css"
+     href = "style.css"/>
   </head>
 
   <body>
+
+
+
+    <h1 class ="titre">Page de connexion </h1>
+
+    <form action="authentification.php" method="post">
+
+      <div>
+        <label for="log">Pseudo/e-mail : </label>
+        <input type="text" autocomplete="off" name="log" />
+      </div>
+
+      <br />
+
+      <div>
+        <label for="mdp"> Mot de passe : </label>
+       <input type="password" autocomplete="off" name="mdp" />
+     </div>
+
+     <div class="submit">
+      <input type="submit" value="Se connecter"></p>
+    </div>
+
+    </form>
 
     <?php
     include 'connexion.php';
@@ -38,13 +66,6 @@
      unset($objetPDO);
    ?>
 
-    <h1>Page de connexion </h1>
-
-    <form action="authentification.php" method="post">
-      <p>Login : <input type="text" autocomplete="off" name="log" /></p>
-      <p>Mot de passe : <input type="password" autocomplete="off" name="mdp" /></p>
-      <p><input type="submit" value="Se connecter"></p>
-    </form>
   </body>
 
 </html>

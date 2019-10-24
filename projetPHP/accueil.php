@@ -13,7 +13,7 @@
     <title> Blog pour le projet de PHP </title>
     <link rel = "stylesheet"
      type = "text/css"
-     href = "styleAccueilListeArticles.css"/>
+     href = "style.css"/>
 
   </head>
 
@@ -46,14 +46,13 @@
 
 <?php
 
-  echo('<div id="menuAccueil">');
+
 
   if(!isSet($_SESSION['pseudo'])){
 
-    echo("<h1 class='titre'> Bienvenue sur le blog du projet PHP !");
+    echo("<h1 class='titre'> Bienvenue sur le blog du projet PHP ! </h1>");
 
-
-
+      echo('<div id="menuAccueil">');
       echo('<form action="creationCompte.php">');
           echo('<input type="submit" value="Créer un compte rédacteur">');
       echo('</form>');
@@ -68,6 +67,7 @@
 
       echo("<h1 class='titre'> Bienvenue sur le blog du projet PHP, " . $_SESSION['pseudo'] ." ! </h1>");
 
+        echo('<div id="menuAccueil">');
     echo("<form action='deconnexion.php'>");
       echo("<input type='submit' value='Se déconnecter'>");
     echo("</form>");
@@ -75,7 +75,7 @@
   }
 
 echo("</div>");
-echo("<br />");
+
 ?>
 
 <h1 class="titre"> Voici les derniers articles disponibles sur le blog : </h1>
@@ -88,7 +88,7 @@ echo("<br />");
 
   $maConnexion = new Connexion();
   $objetPDO = $maConnexion->creer_Connexion();
-  $statement = $objetPDO->query("SELECT titresujet, textesujet, datesujet, nom, prenom, idsujet FROM sujet,redacteur WHERE sujet.idredacteur = redacteur.idredacteur ORDER BY  datesujet DESC");
+  $statement = $objetPDO->query("SELECT titresujet, textesujet, datesujet, nom, prenom, idsujet FROM sujet,redacteur WHERE sujet.idredacteur = redacteur.idredacteur ORDER BY  idsujet DESC");
 
   echo("<div id='articlesPresentation'>");
 
@@ -99,16 +99,17 @@ echo("<br />");
     ++$nbArticles;
 
     if (strlen($colonne['textesujet']) > 400){
-      $contenu = $colonne['textesujet'];
-      $contenu = substr($contenu,0,399);
+      $contenu = $colonne['textesujet'] ;
+      $contenu = substr($contenu,0,399) . "...";
     }
 
     else
       $contenu = $colonne['textesujet'];
+
       echo('<div class="article">');
 
         echo('<h2 class="titreArticle">'   . $colonne['titresujet'] . '</h2>');
-        echo('<div class="contenuArticle">'   . $contenu . ' ... </div>');
+        echo('<div class="contenuArticle">'   . $contenu . '</div>');
         echo(' <br />');
 
       echo('<div class  = "infosArticle">');

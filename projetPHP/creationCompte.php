@@ -10,7 +10,7 @@
    <title> Blog pour le projet de PHP </title>
    <link rel = "stylesheet"
     type = "text/css"
-    href = "styleAccueilListeArticles.css"/>
+    href = "style.css"/>
 </head>
 
 <body>
@@ -37,9 +37,9 @@
 
   </nav>
 
-  <h1> Création d'un compte rédacteur : </h1>
+  <h1 class="titre"> Création d'un compte rédacteur : </h1>
 
-  <form action ="creationCompte.php" method="post">
+  <form action ="creationCompte.php"  method="post">
 
     <div>
       <label for ="nom">Votre nom : </label>
@@ -81,9 +81,8 @@
       <input type="text" autocomplete="off" name="pseudo" value=<?php if(isSet($_POST['pseudo'])) echo($_POST['pseudo'])?>>
     </div>
 
-    <br />
 
-    <div>
+    <div class="submit">
       <input type="submit" value="Valider la création">
     </div>
 

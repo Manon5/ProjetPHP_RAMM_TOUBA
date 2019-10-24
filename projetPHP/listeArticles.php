@@ -12,7 +12,7 @@
   <title> Liste des articles </title>
   <link rel = "stylesheet"
    type = "text/css"
-   href = "styleAccueilListeArticles.css"/>
+   href = "style.css"/>
 
 </head>
 
@@ -57,15 +57,23 @@
   while ($colonne = $statement->fetch()){
 
 
+        if (strlen($colonne['textesujet']) > 400){
+          $contenu = $colonne['textesujet'] ;
+          $contenu = substr($contenu,0,399) . "...";
+        }
+
+        else
+          $contenu = $colonne['textesujet'];
+
        echo('<div class="article">');
 
          echo('<h2 class="titreArticle">'   . $colonne['titresujet'] . '</h2>');
-         echo('<div class="contenuArticle">'   . nl2br($colonne['textesujet']) . '</div>');
+         echo('<div class="contenuArticle">'   . $contenu . '</div>');
          echo(' <br />');
 
        echo('<div class  = "infosArticle">');
            echo('<div class="lienReponses">');
-             echo(" <a href='blog.php?idsujet="  . $colonne['idsujet'] . "'> Voir les réponses  </a>");
+             echo(" <a href='blog.php?idsujet="  . $colonne['idsujet'] . "'> Lire l'article </a>");
            echo('</div>');
 
            echo('<div class="dateArticle"> Ecrit par : ' . $colonne['prenom'] . " ".  $colonne['nom'] . ", le :  <b>" .  $colonne['datesujet'] . '  </b>  </div>');

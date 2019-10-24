@@ -9,20 +9,25 @@
    ?>
 
   <title> Rédaction d'une réponse </title>
-  <head>
+  <meta charset = "UTF-8">
+  <title> Mes articles </title>
+  <link rel = "stylesheet"
+   type = "text/css"
+   href = "style.css"/>
+
+ </head>
 
 <body>
 
-  <h1>Rédaction d'une réponse : </h1>
+  <h1 class="titre">Rédaction d'une réponse : </h1>
 
   <form action =<?php echo ('reponse.php?idsujet=' . $_GET['idsujet'])?> method="post">
 
     <div>
-      <label for ="textereponse">Votre réponse : </label>
-      <p><textarea name="textereponse" rows="8" cols="45"> </textarea></p>
+      <textarea name="textereponse" rows="8" cols="40"> </textarea>
     </div>
 
-    <div>
+    <div class="submit">
       <input type='submit' value='Validez votre réponse'> </input>
     </div>
 

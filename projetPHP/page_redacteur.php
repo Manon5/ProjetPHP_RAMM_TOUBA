@@ -6,7 +6,7 @@
     <title> Blog pour le projet de PHP </title>
     <link rel = "stylesheet"
      type = "text/css"
-     href = "styleAccueilListeArticles.css"/>
+     href = "style.css"/>
 
 <?php session_start(); ?>
   </head>
@@ -44,18 +44,34 @@
 }*/ ?>
     </nav>-->
 
-    <h1>Rédaction d'un nouvel article :  </h1>
-
     <?php
-    echo("Bienvenue, " .   $_SESSION['pseudo'] . " !"); ?>
+      if(isSet($_SESSION['pseudo']))
+        echo('<div id="pseudo"><b> Vous êtes connecté, ' . $_SESSION['pseudo'] ." </b>!"); ?>
+
+    <h1 class="titre">Rédaction d'un nouvel article :  </h1>
+
+
 
 
 
     <form action="page_redacteur.php" method="post">
-      <p>Titre : <input type="text" name="titre" /></p>
-      <p>Contenu de l'article : <br />
-        <textarea name="article" rows="8" cols="45">Saisissez votre article ici.</textarea></p>
-      <p><input type="submit" value="Publier un article"></p>
+
+      <div>
+      <label for="titre"> Titre </label>
+      <input id="titre" type="text" name="titre">
+    </div>
+
+    <br />
+
+    <div>
+      <textarea name="article" rows="8" cols="45">Saisissez votre article ici.</textarea>
+    </div>
+
+<br/ >
+
+<div>
+      <input type="submit" value="Publier un article">
+    </div>
     </form>
 
 
