@@ -31,6 +31,8 @@
 
               echo(' <li class = "itemMenu"> <a href="page_redacteur.php"> Ecrire un article </a> </li>');
               echo(' <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>');
+              echo("<li class='itemMenu'> <a href='javascript:if(confirm(\"Vous allez être déconnecté\")){   location.href=\"deconnexion.php\" }
+                  ' > Se déconnecter </a> </li>");
 
             }
 
@@ -60,7 +62,7 @@
                 echo("<h1 class='titre'> Bienvenue sur le blog du projet PHP, " . $_SESSION['pseudo'] ." ! </h1>");
 
                 echo('<div id="menuAccueil">');
-                  echo("<form action='deconnexion.php'>");
+                  echo("<form action='deconnexion.php' id='déco'>");
                     echo("<input type='submit' value='Se déconnecter'>");
                   echo("</form>");
                 echo("</div>");
@@ -68,6 +70,14 @@
             }
 
 ?>
+
+<script>
+  var myForm = document.getElementById('déco');
+  myForm.addEventListener('submit', function(e) {
+      javascript:if(confirm("Vous allez être déconnecté")){   location.href="deconnexion.php" }
+      e.preventDefault();
+  });
+</script>
 
 <h1 class="titre"> Voici les derniers articles disponibles sur le blog : </h1>
 
