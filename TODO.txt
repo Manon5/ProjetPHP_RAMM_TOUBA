@@ -3,8 +3,9 @@
 -commenter code
 - afficher pseudo partout
 -required
--fermer connexions
+-fermer connexions (reste accueil et blog)
 -presentation/indentement
 -style du site
 - html validator  /CSS
 format dates
+popup déconnexion (reste accueil)
