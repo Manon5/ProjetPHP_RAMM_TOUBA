@@ -9,3 +9,4 @@
 - html validator  /CSS
 format dates
 popup déconnexion (reste accueil)
+longueur input réponses
