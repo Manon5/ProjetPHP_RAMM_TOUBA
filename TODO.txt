@@ -2,9 +2,8 @@
 -commenter code
 -required
 -presentation/indentement
--style du site
 - html validator  /CSS
-popup déconnexion (reste accueil)
+popup déconnexion (reste blog et voir mes articles)
 longueur input réponses
 valider pseudo en direct (js call php)
 format date réponses + heure
