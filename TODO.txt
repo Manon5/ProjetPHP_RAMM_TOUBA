@@ -1,9 +1,6 @@
 
--style erreur page de connexion
 -commenter code
-- afficher pseudo partout
 -required
--fermer connexions (reste accueil et blog)
 -presentation/indentement
 -style du site
 - html validator  /CSS
