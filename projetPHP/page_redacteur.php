@@ -2,21 +2,49 @@
 
   <head>
     <title>Nouvel article</title>
+    <meta charset = "UTF-8">
+    <title> Blog pour le projet de PHP </title>
+    <link rel = "stylesheet"
+     type = "text/css"
+     href = "styleAccueilListeArticles.css"/>
 
+<?php session_start(); ?>
   </head>
 
   <body>
 
-    <nav>
+
+    <nav class="menu">
+
+      <ul>
+            <li> <a href="accueil.php">Retourner à l'accueil</a> </li>
+
+            <?php
+
+            if(isSet($_SESSION['pseudo'])){
+
+            echo(' <li class="itemMenu"> <a href="listeArticles" class="itemMenu"> Voir tous les articles </a> </li>
+
+                  <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>
+                  <li class="itemMenu"> <a href="deconnexion.php" class="itemMenu"> Se déconnecter </a> </li>');
+            }
+
+            ?>
+
+      </ul>
+
+    </nav>
+
+    <!--<nav>
       <a href = "accueil.php"> Retour à l'accueil </a>
       <a href = "listeArticles.php?" > Voir tous les articles </a>
       <?php
-      session_start();
+      /*session_start();
       if(isset($_SESSION['pseudo'])){
         echo("<a href='javascript:if(confirm(\"Vous allez être déconnecté\")){   location.href=\"deconnexion.php\" }
 ' > Se déconnecter </a>");
-      } ?>
-    </nav>
+}*/ ?>
+    </nav>-->
 
     <h1>Rédaction d'un nouvel article :  </h1>
 

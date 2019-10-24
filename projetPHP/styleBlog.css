@@ -1,0 +1,90 @@
+.titreArticle{
+  margin-left:1vw;
+  text-align: center;
+  text-decoration:underline;
+}
+
+.contenuArticle{
+  width:98%;
+  text-align: justify;
+  font-size: 20px;
+}
+
+.dateArticle{
+  width : 98%;
+  font-size: 22px;
+  text-align:right;
+}
+
+#articlesPresentation .article{
+  margin-left: 20vw;
+  width:60%;
+  border : 1px dotted black;
+
+}
+
+#articlesPresentation{
+  width:100vw;
+}
+
+.reponse{
+  width:40vw;
+  height:8vw;
+  border:1px solid black;
+  margin : 2vw;
+  margin:0,5vw;
+}
+
+#espaceCommentaire{
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+}
+
+.contenuReponse{
+  text-align: justify;
+  margin:0.5vw;
+}
+
+.lienReponses a{
+  text-decoration: none;
+}
+
+.menu{
+  width:100vw;
+  height:2vw;
+  border-bottom:1px solid black;
+  margin:0;
+  padding:0;
+}
+
+li a {
+  display: block;
+  color:black;
+  height:100%;
+  width:100%;
+  line-height:2vw;
+  text-decoration: none;
+}
+
+li{
+  text-align: center;
+  align-items: center;
+  width:10%;
+  height:100%;
+  border-right: 1px solid black;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height:100%;
+  display: flex;
+  border-collapse: collapse;
+
+}
+
+body{
+  margin:0;
+}

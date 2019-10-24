@@ -15,7 +15,7 @@
       $id = $_POST["log"];
       $mdp = $_POST["mdp"];
 
-      $query = $co->creer_Connexion()->query("SELECT pseudo, motdepasse FROM redacteur");
+      $query = $co->creer_Connexion()->query("SELECT pseudo, motdepasse, idredacteur FROM redacteur");
       $resultat = $query->fetchAll();
       $valide = 0;
       foreach ($resultat as $key => $variable){
@@ -23,6 +23,7 @@
           echo("Vous etes connecté !");
           session_start();
           $_SESSION['pseudo'] = $id;
+          $_SESSION['idredacteur'] = $resultat[$key]['idredacteur'];
           header('Location: accueil.php');
           $valide = 1;
         }
@@ -37,8 +38,8 @@
     <h1>Page de connexion </h1>
 
     <form action="authentification.php" method="post">
-      <p>Login : <input type="text" name="log" /></p>
-      <p>Mot de passe : <input type="password" name="mdp" /></p>
+      <p>Login : <input type="text" autocomplete="off" name="log" /></p>
+      <p>Mot de passe : <input type="password" autocomplete="off" name="mdp" /></p>
       <p><input type="submit" value="Se connecter"></p>
     </form>
   </body>

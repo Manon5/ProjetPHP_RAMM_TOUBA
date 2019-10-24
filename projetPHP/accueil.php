@@ -30,8 +30,7 @@
 
               echo(' <li class = "itemMenu"> <a href="page_redacteur.php"> Ecrire un article </a> </li>
 
-                  <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>
-                  <li class="itemMenu"> <a href="deconnexion.php" class="itemMenu"> Se déconnecter </a> </li>'
+                  <li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>'
                 );
             }
 
@@ -44,30 +43,35 @@
     <h1 class="titre"> Bienvenue sur le blog du projet PHP ! </h1>
 
 
-<div id="menuAccueil">
 
-    <form action="creationCompte.php">
-      <input type="submit" value="Créer un compte rédacteur">
-    </form>
+
 
 <?php
 
-  if(isSet($_SESSION['pseudo'])){
+  if(!isSet($_SESSION['pseudo'])){
 
-    echo("<form action='deconnexion.php'>
-            <input type='submit' value='Se déconnecter'>
-          </form>");
+    echo('<div id="menuAccueil">');
+      echo('<form action="creationCompte.php">');
+          echo('<input type="submit" value="Créer un compte rédacteur">');
+      echo('</form>');
+
+      echo('<form action="authentification.php">');
+        echo('<input type="submit" value="S\'authentifier">');
+      echo('</form>');
+
   }
 
   else{
 
-    echo('<form action="authentification.php">
-            <input type="submit" value="S\'authentifier">
-          </form>');
+    echo('<div id="menuAccueil">');
+    echo("<form action='deconnexion.php'>");
+      echo("<input type='submit' value='Se déconnecter'>");
+    echo("</form>");
+
   }
 
 echo("</div>");
-
+echo("<br />");
 ?>
 
 <h1 class="titre"> Voici les derniers articles disponibles sur le blog : </h1>
@@ -80,7 +84,7 @@ echo("</div>");
 
   $maConnexion = new Connexion();
   $objetPDO = $maConnexion->creer_Connexion();
-  $statement = $objetPDO->query("SELECT titresujet, textesujet, datesujet, nom, prenom FROM sujet,redacteur WHERE sujet.idredacteur = redacteur.idredacteur ORDER BY  datesujet DESC");
+  $statement = $objetPDO->query("SELECT titresujet, textesujet, datesujet, nom, prenom, idsujet FROM sujet,redacteur WHERE sujet.idredacteur = redacteur.idredacteur ORDER BY  datesujet DESC");
 
   echo("<div id='articlesPresentation'>");
 
@@ -90,20 +94,25 @@ echo("</div>");
 
     ++$nbArticles;
 
-    echo(
 
-       "<div class='article'>" .
+      echo('<div class="article">');
 
-          "<h2 class='titreArticle'>"   . $colonne['titresujet'] . "</h2>"    .
-          "<div class='contenuArticle'>"   . $colonne['textesujet'] . "</div> <br />
-           <div class  = 'dateArticle'> Ecrit par : " . $colonne['prenom'] . " ".  $colonne['nom'] . ", le :  <b>" .  $colonne['datesujet'] . " </b> </div>
-      </div>.
+        echo('<h2 class="titreArticle">'   . $colonne['titresujet'] . '</h2>');
+        echo('<div class="contenuArticle">'   . $colonne['textesujet'] . '</div>');
+        echo(' <br />');
 
+      echo('<div class  = "infosArticle">');
+          echo('<div class="lienReponses">');
+            echo(" <a href='blog.php?idsujet="  . $colonne['idsujet'] . "'> Voir les réponses  </a>");
+          echo('</div>');
 
-       <br />"
+          echo('<div class="dateArticle"> Ecrit par : ' . $colonne['prenom'] . " ".  $colonne['nom'] . ", le :  <b>" .  $colonne['datesujet'] . '  </b>  </div>');
 
-    );
+      echo('</div>');
 
+      echo('<br />');
+
+      echo('</div>');
   }
 
   echo("</div>");
