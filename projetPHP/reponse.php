@@ -3,17 +3,17 @@
 
 <head>
 
-  <?php
-  session_start();
-    include('connexion.php');
-   ?>
-
   <title> Rédaction d'une réponse </title>
-  <meta charset = "UTF-8">
-  <title> Mes articles </title>
+
   <link rel = "stylesheet"
-   type = "text/css"
-   href = "style.css"/>
+        type = "text/css"
+        href = "style.css"/>
+  <meta charset = "UTF-8">
+
+     <?php
+       session_start();
+       include('connexion.php');
+      ?>
 
  </head>
 
@@ -38,25 +38,25 @@
 <?php
 
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-  $maConnexion = new Connexion();
-  $objetPDO = $maConnexion->creer_Connexion();
+    $maConnexion = new Connexion();
+    $objetPDO = $maConnexion->creer_Connexion();
 
-      $statement = $objetPDO->prepare("INSERT INTO reponse(idsujet,idredacteur,daterep,textereponse) VALUES(?,?,NOW(),?)");
+    $statement = $objetPDO->prepare("INSERT INTO reponse(idsujet,idredacteur,daterep,textereponse) VALUES(?,?,NOW(),?)");
 
-      $statement->bindValue(1,$_GET['idsujet']);
-      $statement->bindValue(2,$_SESSION['idredacteur']);
-      $statement->bindValue(3,$_POST['textereponse']);
+    $statement->bindValue(1,$_GET['idsujet']);
+    $statement->bindValue(2,$_SESSION['idredacteur']);
+    $statement->bindValue(3,$_POST['textereponse']);
 
-      $statement->execute();
+    $statement->execute();
 
-      header("Location: blog.php?idsujet=" . $_GET['idsujet']);
+    header("Location: blog.php?idsujet=" . $_GET['idsujet']);
 
+  }
 
-}
-    ?>
+?>
 
-</body>
+  </body>
 
 </html>

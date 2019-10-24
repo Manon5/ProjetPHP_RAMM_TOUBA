@@ -1,8 +1,7 @@
 
 .titre{
   text-align: center;
-  margin-bottom: 2vw;
-  margin-top: 2vw;
+  margin: 2vw 0 2vw 0;
   color: #003167;
 }
 
@@ -70,7 +69,6 @@ ul {
   height:100%;
   display: flex;
   border-collapse: collapse;
-
 }
 
 .titreArticle{
@@ -95,7 +93,6 @@ ul {
 }
 
 #articlesPresentation .article{
-
   width:46%;
   border : 1px dotted #2577d3;
   margin:1vw;
@@ -143,7 +140,6 @@ form div{
   margin-top: 1.5vw;
 }
 
-
 .reponse{
   width:40vw;
   height:10vw;
@@ -179,7 +175,6 @@ form div{
   width:60vw;
   margin: auto;
 }
-
 
 textarea{
   width:21vw;
