@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+
 <html>
 
-  <head>
+  <head lang="fr">
 
 
     <title> Page d'authentification </title>
@@ -10,7 +12,14 @@
           href = "style.css"/>
     <meta charset = "UTF-8">
 
-    <?php include 'connexion.php'; ?>
+    <?php
+    include 'connexion.php';
+    session_start();
+
+    if(isSet($_SESSION['pseudo']))   //Sert à empecher un utilisateur connecté d'accéder à la page de connexion
+       header("Location:accueil.php");
+
+    ?>
 
   </head>
 
@@ -32,13 +41,14 @@
        <input type="password" autocomplete="off" name="mdp" />
      </div>
 
-     <div class="submit">
-      <input type="submit" value="Se connecter"></p>
+     <div id="submitAuth">
+      <input type="submit" value="Se connecter">
     </div>
 
     </form>
 
     <?php
+
 
      $co = new Connexion();     //Création de la connexion sql
 

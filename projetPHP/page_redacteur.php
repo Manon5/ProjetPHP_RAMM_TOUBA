@@ -1,9 +1,12 @@
+<!DOCTYPE html>
+
 <html>
 
-  <head>
+  <head lang="fr">
+
     <title>Nouvel article</title>
+
     <meta charset = "UTF-8">
-    <title> Blog pour le projet de PHP </title>
     <link rel = "stylesheet"
      type = "text/css"
      href = "style.css"/>
@@ -26,7 +29,7 @@
 
             if(isSet($_SESSION['pseudo'])){
 
-              echo('<li class="itemMenu"> <a href="listeArticles" class="itemMenu"> Voir tous les articles </a> </li>')
+              echo('<li class="itemMenu"> <a href="listeArticles" class="itemMenu"> Voir tous les articles </a> </li>');
               echo('<li class="itemMenu"> <a href="liste_articles_perso.php" class="itemMenu"> Voir vos articles </a> </li>');
               echo("<li class='itemMenu'> <a href='javascript:if(confirm(\"Vous allez être déconnecté\")){   location.href=\"deconnexion.php\" }' > Se déconnecter </a> </li>");
             }
@@ -39,7 +42,7 @@
     <?php
 
       if(isSet($_SESSION['pseudo']))
-        echo('<div id="pseudo"><b> Vous êtes connecté, ' . $_SESSION['pseudo'] ." </b>!");
+        echo('<div id="pseudo"><b> Vous êtes connecté, ' . $_SESSION['pseudo'] ." </b> </div>!");
     ?>
 
     <h1 class="titre">Rédaction d'un nouvel article :  </h1>
@@ -48,18 +51,18 @@
 
       <div>
         <label for="titre"> Titre </label>
-        <input id="titre" type="text" name="titre">
+        <input id="titre" type="text" name="titre" maxlength="199" value=<?php if(isSet($_POST['titre'])) echo($_POST['titre'])?>>
       </div>
 
       <br />
 
       <div>
-        <textarea name="article" rows="8" cols="45">Saisissez votre article ici.</textarea>
+        <textarea name="article" rows="8" cols="45" maxlength="3999"></textarea>
       </div>
 
-      <br/ >
+      <br />
 
-      <div>
+      <div id="submitArticle">
         <input type="submit" value="Publier un article">
       </div>
 
@@ -72,19 +75,22 @@
       $titre = $_POST["titre"];
       $article = $_POST["article"];
 
-       $co = new Connexion();
+      $co = new Connexion();
 
        if(trim($_POST["titre"]) != "" &&  trim($_POST["article"]) != ""){
-         $query = $co->creer_Connexion()->prepare("INSERT INTO sujet (idredacteur, titresujet, textesujet, datesujet) VALUES ( ?, ?, ?, NOW())");
+
+         $query = $co->creer_Connexion()->prepare("INSERT INTO sujet (idredacteur, titresujet, textesujet, datesujet)
+                                                   VALUES ( ?, ?, ?, NOW())");
 
          //On récupère l'id du rédacteur
          $pseudo = $_SESSION['pseudo'];
-         $query2 = $co->creer_Connexion()->prepare("SELECT idredacteur FROM redacteur WHERE pseudo = ?");
+         $query2 = $co->creer_Connexion()->prepare("SELECT idredacteur
+                                                    FROM redacteur
+                                                    WHERE pseudo = ?");
          $query2->bindValue(1, $pseudo);
-         echo($pseudo);
          $query2->execute();
+
          $id = $query2->fetch()['idredacteur'];
-         echo($id);
          $query->bindValue(1, $id);
 
         // fin
@@ -92,7 +98,7 @@
          $query->bindValue(3, $_POST["article"]);
          $query->execute();
 
-         echo ("L'article '" . $titre . "'  a bien été publié ! ");
+         header("Location:accueil.php");
 
          }
 
@@ -100,14 +106,14 @@
            echo("Veuillez renseigner le titre de l'article");
          }
 
-         else{
+         else if(trim($_POST["article"]) == ""){
            echo("Veuillez renseigner le contenu de l'article");
       }
 
     }
 
      unset($objetPDO);
-     
+
     ?>
   </body>
 

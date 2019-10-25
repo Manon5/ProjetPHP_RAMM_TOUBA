@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 
 <html>
 
-<head>
+<head lang="fr">
 
    <title> Blog pour le projet de PHP </title>
 
@@ -10,7 +11,13 @@
     href = "style.css"/>
     <meta charset = "UTF-8">
 
-    <?php include('connexion.php'); ?>
+    <?php
+      include('connexion.php');
+
+      session_start();
+      if(isSet($_SESSION['pseudo']))   //Sert à empecher un utilisateur connecté de créer un compte
+         header("Location:accueil.php");
+      ?>
 
 </head>
 
@@ -81,7 +88,7 @@
     </div>
 
 
-    <div class="submit">
+    <div id="submitCompte">
       <input type="submit" value="Valider la création">
     </div>
 

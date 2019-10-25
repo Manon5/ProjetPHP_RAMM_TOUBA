@@ -60,23 +60,22 @@
 
           echo('<h2 class="titreArticle">'   . $colonne['titresujet'] . '</h2>');
 
-          echo('<div class="contenuArticle">'   . $colonne['textesujet'] . '</div>');
-            echo(' <br />');
+            echo('<div class="contenuArticle">'   . $colonne['textesujet'] . '</div>');
 
-          echo('<div class  = "infosArticle">');
+              echo('<div class  = "infosArticle">');
 
-            echo('<div class="lienReponses">');
-              echo(" <a href='blog.php?idsujet="  . $colonne['idsujet'] . "'> Voir les réponses  </a>");
-            echo('</div>');
+                echo('<div class="lienReponses">');
+                  echo(" <a href='blog.php?idsujet="  . $colonne['idsujet'] . "'> Voir les réponses  </a>");
+                echo('</div>');
 
-          echo('</div>');
+              echo('</div>');
 
-          echo('<br />');
+              echo('<br />');
 
-        echo('</div>');
+           echo('</div>');
     }
 
-    echo("</div>");
+      echo("</div>");
 
      ?>
 

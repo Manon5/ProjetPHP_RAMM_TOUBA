@@ -96,7 +96,6 @@ ul {
   width:46%;
   border : 1px dotted #2577d3;
   margin:1vw;
-
 }
 
 #articlesPresentation{
@@ -113,8 +112,15 @@ body{
 
 .lienReponses a{
   text-decoration: none;
-  margin-left:0.5vw;
+  margin:0.5vw;
   color: #509bef;
+  margin: 0vw 0vw 0.5vw 0.5vw;
+  text-decoration: none;
+  float: left;
+}
+
+.lienReponses{
+  margin-bottom: 0.5vw;
 }
 
 #pseudo{
@@ -134,8 +140,26 @@ form div{
   justify-content: space-between;
 }
 
-.submit{
-  width:7vw;
+#submitRep{
+  width:9.5vw;
+  margin: auto;
+  margin-top: 1.5vw;
+}
+
+#submitArticle{
+  width:8vw;
+  margin: auto;
+  margin-top: 0.5vw;
+}
+
+#submitCompte{
+  width:8vw;
+  margin: auto;
+  margin-top: 1.5vw;
+}
+
+#submitAuth{
+  width:8vw;
   margin: auto;
   margin-top: 1.5vw;
 }
@@ -145,7 +169,7 @@ form div{
   height:10vw;
   border:1px solid #2577d3;
   margin : 2vw;
-  margin:0,5vw;
+  margin:0.5vw;
 }
 
 #espaceCommentaire{
@@ -158,11 +182,6 @@ form div{
   text-align: justify;
   margin:0.5vw;
   width:96%;
-}
-
-.lienReponses a{
-  text-decoration: none;
-  float: left;
 }
 
 .titreReponse{
