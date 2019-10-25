@@ -1,10 +1,10 @@
 
--commenter code
--required
--presentation/indentement
-- html validator  /CSS
+
 popup déconnexion (reste blog et voir mes articles)
-longueur input réponses
-valider pseudo en direct (js call php)
+
+
 format date réponses + heure
+
 faire les sauts de ligne dans les articles (fonction nl2br)
+verifier qu'on a rien oublié sur le sujet
+readme
