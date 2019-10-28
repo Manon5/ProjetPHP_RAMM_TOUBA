@@ -9,8 +9,8 @@ class Connexion{
   public function __construct(){
 
     $this->url = 'mysql:host=devbdd.iutmetz.univ-lorraine.fr;dbname=ramm8u_projetPHP;port=3306' ;
-    $this->login = 'ramm8u_appli' ;     //Inserez ici votre login
-    $this->password = 'f8fXf8bXf8fN' ; //Inserez ici votre mdp
+    $this->login = '' ;     //Inserez ici votre login
+    $this->password = '' ; //Inserez ici votre mdp
 
   }
 
