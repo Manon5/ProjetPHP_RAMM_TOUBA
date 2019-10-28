@@ -125,6 +125,8 @@
 
   unset($objetPDO); //Fermeture de la connexion
 
+  echo("<h2 class='titre'> N'hésitez pas à consulter les autres articles du site en cliquant sur l'onglet en haut à gauche ! </h2>");
+  
    ?>
 
  </body>

@@ -85,7 +85,8 @@
 
           echo('</div>');
 
-          echo('<div class="dateArticle"> Ecrit par : ' . $colonne['prenom'] . " ".  $colonne['nom'] . ", le :  <b>" .  $colonne['datesujet'] . '  </b>  </div>');
+          setlocale(LC_TIME, 'fr', 'fr_FR', 'fr_FR.ISO8859-1'); //Changer la timezone pour formater les dates en français
+          echo('<div class="dateArticle"> Ecrit par <b>' . $colonne['prenom'] . " ".  $colonne['nom'] . "</b>, le <b>" . strftime("%A %d %B %G",strtotime($colonne['datesujet']))  . '  </b>  </div>');
 
          echo('</div>');
 

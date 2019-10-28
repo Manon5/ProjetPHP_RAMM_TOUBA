@@ -31,7 +31,7 @@
             if(isSet($_SESSION['pseudo'])){
 
               echo(' <li class = "itemMenu"> <a href="page_redacteur.php"> Ecrire un article </a> </li>');
-              echo('<li> <a href="deconnexion.php">Se déconnecter</a> </li>');
+              echo("<li class='itemMenu'> <a href='javascript:if(confirm(\"Vous allez être déconnecté\")){   location.href=\"deconnexion.php\" }' > Se déconnecter </a> </li>");
 
             }
 
